@@ -4,10 +4,10 @@ The Davis AirLink is a great air quality monitor, but it does have a built in wa
 
 So I fixed that in two ways:
 
-- with a C script that runs on an ESP32 (an $8 Arduino-like computer) that downloads the data from the AirLink and uploads it to a remote webserver, where a Python script receives it, calculates air quality indexes, and inserts it to a database
+- with a Python script that downloads the data from the AirLink and creates air quality indexes locally, and optionally posts it to a remote webserver.
 
-- or with a Python script that downloads the data from the AirLink and creates air quality indexes locally, and optionally posts it to a remote webserver.
+- with a C script that runs on an ESP32 (a $5 Arduino-like computer) that downloads the data from the AirLink and uploads it to a remote webserver, where a Python script receives it, calculates air quality indexes, and inserts it to a database. I'm using the Arduino IDE for that. And note that there's currently a bug in the Arduino httpclient library, see [here](https://github.com/espressif/arduino-esp32/issues/3659). "Fixed" by making the modification to the library mentioned at the [top of the script](https://github.com/wrybread/AirLink-Data-Uploader/blob/main/airlink_poster.ino). 
 
-Also included is a system for displaying the data on a webpage and plotting the AQI history using the excellent flot javascript library. The end result looks like this:
+You can see mine running here:
 
-http://sinkingsensation.com/aqi/sample.php
+https://lawsonslanding.com/webcam.html
